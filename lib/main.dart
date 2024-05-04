@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 void main() => runApp(BankApp());
 
 class BankApp extends StatelessWidget {
-
-  const BankApp({ super.key });
+  const BankApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +15,10 @@ class BankApp extends StatelessWidget {
 }
 
 class Dashboard extends StatelessWidget {
-
-  const Dashboard({ super.key });
+  const Dashboard({Key? key}) : super(key: key);
 
   @override
-  Widget build(Object context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(0, 56, 168, 1.0),
@@ -40,10 +37,12 @@ class Dashboard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network('https://asbraf.com/wp-content/uploads/2020/04/bb3.png'),
+            Image.network(
+                'https://asbraf.com/wp-content/uploads/2020/04/bb3.png'),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(
+                Navigator.push(
+                  context,
                   MaterialPageRoute(builder: (context) => ListaContatos()),
                 );
               },
@@ -79,12 +78,13 @@ class Dashboard extends StatelessWidget {
   }
 }
 
-class ListaContatos extends StatelessWidget {
 
-  const ListaContatos({ super.key });
+class ListaContatos extends StatelessWidget {
+  const ListaContatos({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(0, 56, 168, 1.0),
@@ -97,34 +97,30 @@ class ListaContatos extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView(
-        padding: EdgeInsets.all(8.0),
-        children: const [
-          Card(
-            child: ListTile(
-              title: Text(
-                'Alexandre',
-                style: TextStyle(
-                  fontSize: 24.0,
+        body: ListView(
+          padding: EdgeInsets.all(8.0),
+          children: [
+            Card(
+              child: ListTile(
+                title: Text(
+                    "Vanderlei",
+                style: TextStyle(fontSize: 24.0),
                 ),
-              ),
-              subtitle: Text(
-                '1000',
-                style: TextStyle(
-                  fontSize: 16.0,
+                subtitle: Text(
+                  "1000",
+                  style: TextStyle(fontSize: 16.0),
                 ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Color.fromRGBO(0, 56, 168, 1.0),
+        backgroundColor: Color.fromRGBO(0, 56, 168, 1),
+        onPressed: (){},
         child: Icon(
           Icons.add,
-          color: Colors.white, 
-          size: 35.0,
+          color: Colors.white,
+          size: 35,
         ),
       ),
     );
